@@ -69,6 +69,7 @@
             txtInput.BackColor = Color.FromArgb(255, 255, 128);
             txtInput.Location = new Point(31, 77);
             txtInput.Name = "txtInput";
+            txtInput.ReadOnly = true;
             txtInput.Size = new Size(349, 23);
             txtInput.TabIndex = 1;
             // 
@@ -77,6 +78,7 @@
             txtResult.BackColor = Color.FromArgb(255, 255, 192);
             txtResult.Location = new Point(31, 117);
             txtResult.Name = "txtResult";
+            txtResult.ReadOnly = true;
             txtResult.Size = new Size(349, 23);
             txtResult.TabIndex = 2;
             // 
@@ -360,8 +362,10 @@
             Controls.Add(txtResult);
             Controls.Add(txtInput);
             Controls.Add(mainLbl);
+            KeyPreview = true;
             Name = "Form1";
             Text = "Form1";
+            KeyDown += Form1_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
