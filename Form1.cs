@@ -34,12 +34,48 @@ namespace SimpleCalculator
         {
             string input = txtInput.Text;
 
-            string[] parts = input.Split('+');
+            if (input.Contains("+"))
+            {
+                string[] parts = input.Split('+');
 
-            int num1 = int.Parse(parts[0].Trim());
-            int num2 = int.Parse(parts[1].Trim());
+                int num1 = int.Parse(parts[0].Trim());
+                int num2 = int.Parse(parts[1].Trim());
 
-            txtResult.Text = (num1 + num2).ToString();
+                txtResult.Text = (num1 + num2).ToString();
+            }
+            else if (input.Contains("-"))
+            {
+                string[] parts = input.Split('-');
+
+                int num1 = int.Parse(parts[0].Trim());
+                int num2 = int.Parse(parts[1].Trim());
+
+                txtResult.Text = (num1 - num2).ToString();
+            }
+            else if (input.Contains("*"))
+            {
+                string[] parts = input.Split('*');
+
+                int num1 = int.Parse(parts[0].Trim());
+                int num2 = int.Parse(parts[1].Trim());
+
+                txtResult.Text = (num1 * num2).ToString();
+            }
+            else if (input.Contains("/"))
+            {
+                string[] parts = input.Split('/');
+
+                int num1 = int.Parse(parts[0].Trim());
+                int num2 = int.Parse(parts[1].Trim());
+
+                if (num2 == 0)
+                {
+                    MessageBox.Show("0으로 나눌 수 없습니다.");
+                    return;
+                }
+
+                txtResult.Text = (num1 / num2).ToString();
+            }
 
         }
     }
